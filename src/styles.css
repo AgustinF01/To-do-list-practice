@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  background-image: url(../src/assets/wood.jpg);
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+}
+
+input[type="text"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffffcb;
+}
+
+input[placeholder="Añadir tarea"] {
+  color: black;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.filter button.active {
+  background-color: #0056b3;
+}
+
+.filter .all {
+  background-color: #007bff; 
+  color: #ffffff; 
+}
+.filter .all:hover {
+  background-color: #0061c9;
+}
+
+.filter .completed {
+  background-color: #2ecc71; 
+  color: #ffffff; 
+}
+.filter .completed:hover {
+  background-color: #28b462;
+}
+
+.filter .pending {
+  background-color: #e74c3c; 
+  color: #ffffff; 
+}
+.filter .pending:hover {
+  background-color: #bb3e30;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.task {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  /* background-color: #f8f55b; */
+  background-image: url(../src/assets/notas.png);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 100px;
+}
+
+.task input[type="checkbox"] {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.task span {
+  flex-grow: 1;
+  margin-bottom: 10px;
+  margin-left: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-family: cursive;
+  color: black;
+  word-wrap: break-word;
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.task::-webkit-scrollbar {
+  width: 2px;
+}
+
+.task::-webkit-scrollbar-thumb {
+  background-color: #ccc; 
+  border-radius: 10px;
+}
+
+.task::-webkit-scrollbar-track {
+  background-color: #f0f0f0; 
+  border-radius: 10px;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.task button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  width: 80px;
+  margin-left: 50px;
+  text-decoration: underline;
+  font-family: cursive;
+}
+
+/* Estilos para pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+  .app {
+    width: 90%;
+    padding: 10px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+/* Estilos para pantallas medianas (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .app {
+    width: 80%;
+    padding: 20px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 120px;
+  }
+}
+
+/* Estilos para pantallas grandes (más de 1024px) */
+@media (min-width: 1024px) {
+  .app {
+    width: 70%;
+    padding: 30px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 480px) {
+  .app {
+    width: 100%;
+    padding: 10px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 100px;
+  }
+  .filter {
+    flex-direction: column;
+  }
+  .filter button {
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilos para pantallas de alta resolución */
+@media (min-width: 1920px) {
+  .app {
+    width: 60%;
+    padding: 40px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+/* Estilos para dispositivos con pantalla vertical */
+@media (orientation: portrait) {
+  .app {
+    width: 100%;
+    padding: 10px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 100px;
+  }
+  .filter {
+    flex-direction: column;
+  }
+  .filter button {
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilos para dispositivos con pantalla horizontal */
+@media (orientation: landscape) {
+  .app {
+    width: 80%;
+    padding: 20px;
+  }
+  .task-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .task {
+    width: 100%;
+    height: 120px;
+  }
+}
